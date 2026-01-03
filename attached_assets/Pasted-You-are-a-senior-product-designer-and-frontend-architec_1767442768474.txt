@@ -1,0 +1,323 @@
+You are a senior product designer and frontend architect.
+
+Build a COMPLETE, PROFESSIONAL, SaaS-STYLE FRONTEND for a
+MARKETING AGENCY STRATEGY & CAMPAIGN AUTOMATION PLATFORM.
+
+This is NOT a simple marketing website.
+It is a multi-page, multi-workflow web application.
+
+The frontend must prioritize:
+• Clarity
+• Speed
+• Workflow-based navigation
+• Enterprise-grade polish
+
+====================================================
+GLOBAL DESIGN SYSTEM
+====================================================
+• Clean modern SaaS aesthetic
+• White / light background with subtle neutral grays
+• One accent color (blue / violet / teal)
+• Minimal gradients (only for highlights)
+• No heavy illustrations
+• Use cards, tables, and step-based layouts
+• Smooth but subtle micro-animations
+• Typography: strong hierarchy, readable body text
+• Desktop-first (responsive later)
+
+====================================================
+LAYOUT & NAVIGATION
+====================================================
+• Public website + Auth + App
+• Sidebar navigation inside the app
+• Top bar for account actions
+• Clear breadcrumbs inside client workspace
+
+====================================================
+PUBLIC WEBSITE PAGES
+====================================================
+
+1. HOME PAGE
+Sections:
+• Hero section with headline:
+  "Create marketing strategies & campaigns in minutes — not weeks."
+• Primary CTA: Get Started
+• Secondary CTA: Book Demo
+• 3-step explanation:
+  Add Client → Generate Strategy → Launch Campaigns
+• Who it’s for (Startups, Local Businesses, Growing Brands)
+• Final CTA
+
+Buttons:
+• Get Started
+• Book Demo
+• Login
+
+----------------------------------------------------
+
+2. HOW IT WORKS
+Sections:
+• Step-by-step explanation
+• Visual cards for each step
+• Sample strategy preview
+
+Buttons:
+• Start Free
+• See Sample Strategy
+
+----------------------------------------------------
+
+3. SERVICES
+Sections:
+• Strategy Automation
+• Campaign Planning
+• Content Planning
+• Brand Management
+
+Buttons:
+• View Service Details
+• Generate Strategy
+
+----------------------------------------------------
+
+4. CASE STUDIES
+Sections:
+• Grid of case study cards
+• Industry tags
+• Result highlights
+
+Buttons:
+• View Full Case Study
+• Start Similar Strategy
+• Filter by Industry
+
+----------------------------------------------------
+
+5. LOGIN / SIGNUP
+Forms:
+• Email + Password
+• Continue with Google
+
+Buttons:
+• Login
+• Sign Up
+• Forgot Password
+• Back to Home
+
+====================================================
+APP (AUTHENTICATED AREA)
+====================================================
+
+GLOBAL APP LAYOUT:
+• Left sidebar navigation
+• Top header with user profile
+• Main content area with cards & tables
+
+SIDEBAR MENU:
+• Dashboard
+• Clients
+• Strategy
+• Campaigns
+• Content
+• Exports
+• Settings
+
+====================================================
+DASHBOARD PAGE
+====================================================
+Components:
+• KPI cards:
+  - Active Clients
+  - Strategies Generated
+  - Campaigns Planned
+• Recent activity list
+
+Buttons:
+• Add New Client
+• View All Clients
+• Generate Strategy
+
+====================================================
+CLIENTS PAGE
+====================================================
+Components:
+• Client table:
+  - Logo
+  - Company Name
+  - Industry
+  - Status
+
+Buttons:
+• Add New Client
+• Import Client
+• Open Client Workspace
+• Edit Client
+• Archive Client
+
+Filters:
+• Industry
+• Status
+• Goal
+
+====================================================
+ADD NEW CLIENT (MULTI-STEP WIZARD)
+====================================================
+Progress bar at top.
+
+STEP 1: BUSINESS INFO
+Fields:
+• Company Name
+• Website URL
+• Industry
+• Business Type
+• Geography
+
+Buttons:
+• Next
+• Save Draft
+• Cancel
+
+STEP 2: BRAND KIT
+Fields:
+• Logo Upload
+• Brand Colors
+• Fonts
+• Brand Tone (checkboxes)
+
+Buttons:
+• Next
+• Back
+• Save Draft
+
+STEP 3: BUSINESS GOALS
+Fields:
+• Primary Goal
+• Secondary Goal
+• Monthly Budget (slider)
+• Timeline
+
+Buttons:
+• Next
+• Back
+• Save Draft
+
+STEP 4: TARGET AUDIENCE
+Fields:
+• Audience Type
+• Age Range
+• Location
+• Pain Points
+• Awareness Stage
+
+Buttons:
+• Next
+• Back
+• Save Draft
+
+STEP 5: REVIEW & CONFIRM
+Buttons:
+• Confirm & Create Client
+• Edit Previous Steps
+• Save as Draft
+
+====================================================
+CLIENT WORKSPACE
+====================================================
+Tabs:
+• Overview
+• Brand Kit
+• Audience
+• Strategy
+• Campaigns
+• Content
+• Exports
+
+----------------------------------------------------
+
+OVERVIEW TAB
+Components:
+• Client snapshot card
+• Goals & budget summary
+
+Buttons:
+• Edit Client Info
+• Generate Strategy
+
+----------------------------------------------------
+
+STRATEGY PAGE
+Layout:
+• Left: Client context panel
+• Right: Strategy document view
+
+Buttons:
+• Generate Strategy
+• Regenerate Strategy
+• Edit Strategy
+• Lock Strategy
+• Export Strategy (PDF)
+
+----------------------------------------------------
+
+CAMPAIGNS PAGE
+Components:
+• Campaign table
+• Status indicators
+
+Buttons:
+• Create New Campaign
+• Generate Campaign Plan
+• Edit Campaign
+• Duplicate Campaign
+• Archive Campaign
+
+----------------------------------------------------
+
+CONTENT PAGE
+Components:
+• Calendar view (monthly)
+• Content cards
+
+Buttons:
+• Generate Content Plan
+• Add Content Item
+• Edit Content
+• Export Content Calendar
+
+----------------------------------------------------
+
+EXPORTS PAGE
+Buttons:
+• Export Strategy PDF
+• Export Campaign Plan (Excel)
+• Export Content Calendar (CSV)
+• Download Brand Kit
+
+====================================================
+SETTINGS PAGE
+====================================================
+Sections:
+• Agency Profile
+• Team Management
+• Billing
+• Security
+
+Buttons:
+• Add Team Member
+• Change Password
+• Manage Subscription
+• Logout
+
+====================================================
+IMPORTANT RULES
+====================================================
+• NO backend logic required
+• NO real API integrations
+• Use realistic placeholder data
+• Focus on layout, hierarchy, UX clarity
+• Make all buttons visually distinct
+• Use consistent component styling
+• Assume this will scale to 100+ clients
+
+Deliver a COMPLETE, CLICKABLE FRONTEND UI
+that looks like a real SaaS product.
