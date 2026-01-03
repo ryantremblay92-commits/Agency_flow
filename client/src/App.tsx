@@ -14,6 +14,11 @@ import Dashboard from "@/pages/app/dashboard";
 import ClientsList from "@/pages/app/clients/index";
 import NewClientWizard from "@/pages/app/clients/new-client";
 import ClientWorkspace from "@/pages/app/clients/workspace";
+import StrategiesPage from "@/pages/app/strategies";
+import CampaignsPage from "@/pages/app/campaigns";
+import ContentPage from "@/pages/app/content";
+import ExportsPage from "@/pages/app/exports";
+import SettingsPage from "@/pages/app/settings";
 
 function Router() {
   return (
@@ -29,6 +34,11 @@ function Router() {
       <Route path="/app/clients" component={ClientsList} />
       <Route path="/app/clients/new" component={NewClientWizard} />
       <Route path="/app/clients/:id" component={ClientWorkspace} />
+      <Route path="/app/strategies" component={StrategiesPage} />
+      <Route path="/app/campaigns" component={CampaignsPage} />
+      <Route path="/app/content" component={ContentPage} />
+      <Route path="/app/exports" component={ExportsPage} />
+      <Route path="/app/settings" component={SettingsPage} />
       
       {/* Fallback to 404 */}
       <Route component={NotFound} />
