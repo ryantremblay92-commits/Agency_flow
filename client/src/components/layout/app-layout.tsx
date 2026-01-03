@@ -43,7 +43,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
   const menuItems = [
     { label: "Dashboard", icon: LayoutDashboard, href: "/app/dashboard" },
     { label: "Clients", icon: Users, href: "/app/clients" },
-    { label: "Strategy", icon: Target, href: "/app/strategy" },
+    { label: "Strategies", icon: Target, href: "/app/strategies" },
     { label: "Campaigns", icon: Megaphone, href: "/app/campaigns" },
     { label: "Content", icon: FileText, href: "/app/content" },
     { label: "Exports", icon: Download, href: "/app/exports" },
