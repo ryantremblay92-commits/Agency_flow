@@ -18,10 +18,16 @@ import {
   Plus,
   Target,
   BarChart,
-  Users
+  Users,
+  Check,
+  ArrowRight
 } from "lucide-react";
 import { Link, useRoute } from "wouter";
 import { useState } from "react";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 export default function ClientWorkspace() {
   const [match, params] = useRoute("/app/clients/:id");
@@ -37,10 +43,17 @@ export default function ClientWorkspace() {
   };
 
   const [isGenerating, setIsGenerating] = useState(false);
+  const [isCampaignModalOpen, setIsCampaignModalOpen] = useState(false);
+  const [campaignStep, setCampaignStep] = useState(1);
 
   const handleGenerate = () => {
     setIsGenerating(true);
     setTimeout(() => setIsGenerating(false), 2000);
+  };
+
+  const handleCreateCampaign = () => {
+    setIsCampaignModalOpen(false);
+    setCampaignStep(1);
   };
 
   return (
@@ -288,9 +301,73 @@ export default function ClientWorkspace() {
                       <CardTitle>Campaigns</CardTitle>
                       <CardDescription>Manage active and scheduled campaigns</CardDescription>
                     </div>
-                    <Button>
-                      <Plus className="w-4 h-4 mr-2" /> Create Campaign
-                    </Button>
+                    <Dialog open={isCampaignModalOpen} onOpenChange={(val) => { setIsCampaignModalOpen(val); if(!val) setCampaignStep(1); }}>
+                      <DialogTrigger asChild>
+                        <Button data-testid="button-create-campaign">
+                          <Plus className="w-4 h-4 mr-2" /> Create Campaign
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent className="sm:max-w-[500px]">
+                        <DialogHeader>
+                          <DialogTitle>Create New Campaign</DialogTitle>
+                          <DialogDescription>
+                            Configure and launch a new marketing campaign for {client.name}.
+                          </DialogDescription>
+                        </DialogHeader>
+                        
+                        <div className="py-6">
+                          {campaignStep === 1 ? (
+                            <div className="space-y-4">
+                              <div className="space-y-2">
+                                <Label htmlFor="camp-name">Campaign Name</Label>
+                                <Input id="camp-name" placeholder="e.g. Q1 Product Launch" />
+                              </div>
+                              <div className="space-y-2">
+                                <Label htmlFor="platform">Platform</Label>
+                                <Select>
+                                  <SelectTrigger id="platform">
+                                    <SelectValue placeholder="Select platform" />
+                                  </SelectTrigger>
+                                  <SelectContent>
+                                    <SelectItem value="linkedin">LinkedIn Ads</SelectItem>
+                                    <SelectItem value="google">Google Search</SelectItem>
+                                    <SelectItem value="facebook">Facebook/Instagram</SelectItem>
+                                    <SelectItem value="twitter">Twitter (X) Ads</SelectItem>
+                                  </SelectContent>
+                                </Select>
+                              </div>
+                              <div className="space-y-2">
+                                <Label htmlFor="budget">Monthly Budget</Label>
+                                <Input id="budget" type="number" placeholder="500" />
+                              </div>
+                            </div>
+                          ) : (
+                            <div className="space-y-6 flex flex-col items-center py-4">
+                              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary animate-pulse">
+                                <Megaphone className="w-8 h-8" />
+                              </div>
+                              <div className="text-center space-y-2">
+                                <h4 className="font-semibold text-lg">Ready to Launch</h4>
+                                <p className="text-sm text-muted-foreground">We've mapped out the target audience and ad sets for your LinkedIn campaign. Click launch to start pushing ads live.</p>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+
+                        <DialogFooter>
+                          {campaignStep === 1 ? (
+                            <Button onClick={() => setCampaignStep(2)} className="w-full">
+                              Next Step <ArrowRight className="ml-2 w-4 h-4" />
+                            </Button>
+                          ) : (
+                            <div className="flex gap-3 w-full">
+                              <Button variant="outline" onClick={() => setCampaignStep(1)} className="flex-1">Back</Button>
+                              <Button onClick={handleCreateCampaign} className="flex-1">Launch Campaign</Button>
+                            </div>
+                          )}
+                        </DialogFooter>
+                      </DialogContent>
+                    </Dialog>
                  </CardHeader>
                  <CardContent>
                    <div className="space-y-4">
