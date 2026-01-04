@@ -6,6 +6,16 @@ import { createServer } from "http";
 const app = express();
 const httpServer = createServer(app);
 
+// Critical Railway Health Check - Must be at the top level
+app.get("/api/health", (req, res) => {
+  console.log(`[health] Railway health check request received from ${req.headers['x-forwarded-for'] || req.ip} at ${new Date().toISOString()}`);
+  res.status(200).json({
+    status: "OK",
+    environment: process.env.NODE_ENV,
+    timestamp: new Date().toISOString()
+  });
+});
+
 declare module "http" {
   interface IncomingMessage {
     rawBody: unknown;

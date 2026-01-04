@@ -12,10 +12,6 @@ export async function registerRoutes(
   // use storage to perform CRUD operations on the storage interface
   // e.g. storage.insertUser(user) or storage.getUserByUsername(username)
 
-  app.get("/api/health", (_req, res) => {
-    res.status(200).json({ status: "OK", timestamp: new Date().toISOString() });
-  });
-
   app.get("/api/clients", async (req, res) => {
     try {
       const clients = await storage.getClients();
