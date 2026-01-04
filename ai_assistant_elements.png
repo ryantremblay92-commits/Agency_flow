@@ -1,0 +1,239 @@
+uid=3_0 RootWebArea url="http://localhost:5000/app/ai-assistant"
+  uid=3_1 ignored
+    uid=3_2 generic
+      uid=3_3 generic
+        uid=3_4 region "Notifications (F8)"
+          uid=3_5 list
+        uid=3_6 ignored
+          uid=3_7 ignored
+            uid=3_8 ignored
+              uid=3_9 generic
+              uid=3_10 generic
+                uid=3_11 ignored
+                  uid=3_12 ignored
+                    uid=3_13 link "AgencyFlow" url="http://localhost:5000/app/dashboard"
+                      uid=3_14 ignored
+                      uid=3_15 ignored
+                        uid=3_16 StaticText "AgencyFlow"
+                          uid=3_17 InlineTextBox "AgencyFlow"
+                  uid=3_18 ignored
+                    uid=3_19 generic
+                      uid=3_20 ignored
+                        uid=3_21 StaticText "Menu"
+                          uid=3_22 InlineTextBox "Menu"
+                      uid=3_23 ignored
+                        uid=3_24 list
+                          uid=3_25 listitem level="1"
+                            uid=3_26 link "Dashboard" url="http://localhost:5000/app/dashboard"
+                              uid=3_27 ignored
+                                uid=3_28 StaticText "Dashboard"
+                                  uid=3_29 InlineTextBox "Dashboard"
+                          uid=3_30 listitem level="1"
+                            uid=3_31 link "Clients" url="http://localhost:5000/app/clients"
+                              uid=3_32 ignored
+                                uid=3_33 StaticText "Clients"
+                                  uid=3_34 InlineTextBox "Clients"
+                          uid=3_35 listitem level="1"
+                            uid=3_36 link "Strategies" url="http://localhost:5000/app/strategies"
+                              uid=3_37 ignored
+                                uid=3_38 StaticText "Strategies"
+                                  uid=3_39 InlineTextBox "Strategies"
+                          uid=3_40 listitem level="1"
+                            uid=3_41 link "Campaigns" url="http://localhost:5000/app/campaigns"
+                              uid=3_42 ignored
+                                uid=3_43 StaticText "Campaigns"
+                                  uid=3_44 InlineTextBox "Campaigns"
+                          uid=3_45 listitem level="1"
+                            uid=3_46 link "Content" url="http://localhost:5000/app/content"
+                              uid=3_47 ignored
+                                uid=3_48 StaticText "Content"
+                                  uid=3_49 InlineTextBox "Content"
+                          uid=3_50 listitem level="1"
+                            uid=3_51 link "Exports" url="http://localhost:5000/app/exports"
+                              uid=3_52 ignored
+                                uid=3_53 StaticText "Exports"
+                                  uid=3_54 InlineTextBox "Exports"
+                    uid=3_55 generic
+                      uid=3_56 ignored
+                        uid=3_57 StaticText "System"
+                          uid=3_58 InlineTextBox "System"
+                      uid=3_59 ignored
+                        uid=3_60 list
+                          uid=3_61 listitem level="1"
+                            uid=3_62 link "Settings" url="http://localhost:5000/app/settings"
+                              uid=3_63 ignored
+                                uid=3_64 StaticText "Settings"
+                                  uid=3_65 InlineTextBox "Settings"
+                  uid=3_66 ignored
+                    uid=3_67 ignored
+                      uid=3_68 ignored
+                        uid=3_69 image url="https://github.com/shadcn.png"
+                      uid=3_70 ignored
+                        uid=3_71 ignored
+                          uid=3_72 StaticText "Alex Design"
+                            uid=3_73 InlineTextBox "Alex Design"
+                        uid=3_74 ignored
+                          uid=3_75 StaticText "Admin"
+                            uid=3_76 InlineTextBox "Admin"
+            uid=3_77 ignored
+              uid=3_78 banner
+                uid=3_79 button "Toggle Sidebar"
+                  uid=3_80 ignored
+                    uid=3_81 StaticText "Toggle Sidebar"
+                      uid=3_82 InlineTextBox "Toggle Sidebar"
+                uid=3_83 ignored
+                  uid=3_84 generic
+                    uid=3_85 searchbox "Search clients, campaigns, strategies..."
+                      uid=3_86 ignored
+                      uid=3_87 ignored
+                        uid=3_88 generic
+                uid=3_89 ignored
+                  uid=3_90 button "New Client"
+                    uid=3_91 StaticText "New Client"
+                      uid=3_92 InlineTextBox "New Client"
+                  uid=3_93 button
+                  uid=3_94 button expandable haspopup="menu"
+                    uid=3_95 ignored
+                      uid=3_96 image url="https://github.com/shadcn.png"
+              uid=3_97 main
+                uid=3_98 ignored
+                  uid=3_99 ignored
+                    uid=3_100 ignored
+                      uid=3_101 ignored
+                        uid=3_102 ignored
+                        uid=3_103 ignored
+                          uid=3_104 heading "AI Marketing Assistant" level="1"
+                            uid=3_105 StaticText "AI Marketing Assistant"
+                              uid=3_106 InlineTextBox "AI Marketing Assistant"
+                          uid=3_107 paragraph
+                            uid=3_108 StaticText "Intelligent insights powered by advanced AI analysis"
+                              uid=3_109 InlineTextBox "Intelligent insights powered by advanced AI analysis"
+                      uid=3_110 ignored
+                        uid=3_111 StaticText "Gemini AI Powered"
+                          uid=3_112 InlineTextBox "Gemini AI Powered"
+                    uid=3_113 ignored
+                      uid=3_114 ignored
+                        uid=3_115 ignored
+                          uid=3_116 StaticText "Select Client for AI Analysis"
+                            uid=3_117 InlineTextBox "Select Client for AI Analysis"
+                        uid=3_118 generic
+                          uid=3_119 StaticText "Choose a client to enable AI-powered insights with their complete profile data"
+                            uid=3_120 InlineTextBox "Choose a client to enable AI-powered insights with their complete profile data"
+                      uid=3_121 ignored
+                        uid=3_122 ignored
+                          uid=3_123 ignored
+                            uid=3_124 LabelText
+                              uid=3_125 StaticText "Client"
+                                uid=3_126 InlineTextBox "Client"
+                            uid=3_127 combobox expandable haspopup="listbox" value="Select a client..."
+                              uid=3_128 ignored
+                                uid=3_129 StaticText "Select a client..."
+                                  uid=3_130 InlineTextBox "Select a client..."
+                    uid=3_131 ignored
+                      uid=3_132 ignored
+                        uid=3_133 ignored
+                          uid=3_134 ignored
+                            uid=3_135 ignored
+                              uid=3_136 StaticText "Strategy"
+                                uid=3_137 InlineTextBox "Strategy"
+                          uid=3_138 generic
+                            uid=3_139 StaticText "Strategy Generator"
+                              uid=3_140 InlineTextBox "Strategy Generator"
+                          uid=3_141 generic
+                            uid=3_142 StaticText "Create comprehensive marketing strategies based on client data and industry analysis"
+                              uid=3_143 InlineTextBox "Create comprehensive marketing "
+                              uid=3_144 InlineTextBox "strategies based on client data and "
+                              uid=3_145 InlineTextBox "industry analysis"
+                        uid=3_146 ignored
+                          uid=3_147 ignored
+                            uid=3_148 ignored
+                              uid=3_149 ignored
+                                uid=3_150 StaticText "Data Quality"
+                                  uid=3_151 InlineTextBox "Data Quality"
+                              uid=3_152 ignored
+                                uid=3_153 StaticText "High"
+                                  uid=3_154 InlineTextBox "High"
+                            uid=3_155 progressbar valuemax="100" valuemin="0" valuetext=""
+                              uid=3_156 ignored
+                          uid=3_157 button "Generate Strategy" disableable disabled
+                            uid=3_158 StaticText "Generate Strategy"
+                              uid=3_159 InlineTextBox "Generate Strategy"
+                      uid=3_160 ignored
+                        uid=3_161 ignored
+                          uid=3_162 ignored
+                            uid=3_163 ignored
+                              uid=3_164 StaticText "Content"
+                                uid=3_165 InlineTextBox "Content"
+                          uid=3_166 generic
+                            uid=3_167 StaticText "Content Calendar"
+                              uid=3_168 InlineTextBox "Content Calendar"
+                          uid=3_169 generic
+                            uid=3_170 StaticText "Generate personalized content calendars with posting schedules and themes"
+                              uid=3_171 InlineTextBox "Generate personalized content "
+                              uid=3_172 InlineTextBox "calendars with posting schedules and "
+                              uid=3_173 InlineTextBox "themes"
+                        uid=3_174 ignored
+                          uid=3_175 ignored
+                            uid=3_176 ignored
+                              uid=3_177 ignored
+                                uid=3_178 StaticText "Creativity Score"
+                                  uid=3_179 InlineTextBox "Creativity Score"
+                              uid=3_180 ignored
+                                uid=3_181 StaticText "Excellent"
+                                  uid=3_182 InlineTextBox "Excellent"
+                            uid=3_183 progressbar valuemax="100" valuemin="0" valuetext=""
+                              uid=3_184 ignored
+                          uid=3_185 button "Create Calendar" disableable disabled
+                            uid=3_186 StaticText "Create Calendar"
+                              uid=3_187 InlineTextBox "Create Calendar"
+                      uid=3_188 ignored
+                        uid=3_189 ignored
+                          uid=3_190 ignored
+                            uid=3_191 ignored
+                              uid=3_192 StaticText "Optimization"
+                                uid=3_193 InlineTextBox "Optimization"
+                          uid=3_194 generic
+                            uid=3_195 StaticText "Campaign Optimizer"
+                              uid=3_196 InlineTextBox "Campaign Optimizer"
+                          uid=3_197 generic
+                            uid=3_198 StaticText "Analyze current campaigns and provide data-driven optimization recommendations"
+                              uid=3_199 InlineTextBox "Analyze current campaigns and "
+                              uid=3_200 InlineTextBox "provide data-driven optimization "
+                              uid=3_201 InlineTextBox "recommendations"
+                        uid=3_202 ignored
+                          uid=3_203 ignored
+                            uid=3_204 ignored
+                              uid=3_205 ignored
+                                uid=3_206 StaticText "Analysis Depth"
+                                  uid=3_207 InlineTextBox "Analysis Depth"
+                              uid=3_208 ignored
+                                uid=3_209 StaticText "Advanced"
+                                  uid=3_210 InlineTextBox "Advanced"
+                            uid=3_211 progressbar valuemax="100" valuemin="0" valuetext=""
+                              uid=3_212 ignored
+                          uid=3_213 button "Optimize Campaigns" disableable disabled
+                            uid=3_214 StaticText "Optimize Campaigns"
+                              uid=3_215 InlineTextBox "Optimize Campaigns"
+                      uid=3_216 ignored
+                        uid=3_217 ignored
+                          uid=3_218 ignored
+                            uid=3_219 ignored
+                              uid=3_220 StaticText "Research"
+                                uid=3_221 InlineTextBox "Research"
+                          uid=3_222 generic
+                            uid=3_223 StaticText "Document Analysis"
+                              uid=3_224 InlineTextBox "Document Analysis"
+                          uid=3_225 generic
+                            uid=3_226 StaticText "Upload research documents, competitor reports, or customer data for AI analysis"
+                              uid=3_227 InlineTextBox "Upload research documents, competitor reports, or customer data for AI analysis"
+                        uid=3_228 ignored
+                          uid=3_229 ignored
+                            uid=3_230 heading "Upload Research Files" level="3"
+                              uid=3_231 StaticText "Upload Research Files"
+                                uid=3_232 InlineTextBox "Upload Research Files"
+                            uid=3_233 paragraph
+                              uid=3_234 StaticText "Drop PDFs, spreadsheets, or documents here for AI analysis"
+                                uid=3_235 InlineTextBox "Drop PDFs, spreadsheets, or documents here for AI analysis"
+                            uid=3_236 button "Choose Files (Coming Soon)" disableable disabled
+                              uid=3_237 StaticText "Choose Files (Coming Soon)"
+                                uid=3_238 InlineTextBox "Choose Files (Coming Soon)"

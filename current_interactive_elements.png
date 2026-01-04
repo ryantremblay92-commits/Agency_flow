@@ -1,0 +1,211 @@
+uid=10_0 RootWebArea url="http://localhost:5000/app/clients/d052b2c5-b9c3-4f97-bc5b-7c13541e2884"
+  uid=10_1 ignored
+    uid=10_2 generic
+      uid=10_3 generic
+        uid=10_4 region "Notifications (F8)"
+          uid=10_5 list
+        uid=10_6 ignored
+          uid=10_7 ignored
+            uid=10_8 ignored
+              uid=10_9 generic
+              uid=10_10 generic
+                uid=10_11 ignored
+                  uid=10_12 ignored
+                    uid=10_13 link "AgencyFlow" url="http://localhost:5000/app/dashboard"
+                      uid=10_14 ignored
+                      uid=10_15 ignored
+                        uid=10_16 StaticText "AgencyFlow"
+                          uid=10_17 InlineTextBox "AgencyFlow"
+                  uid=10_18 ignored
+                    uid=10_19 generic
+                      uid=10_20 ignored
+                        uid=10_21 StaticText "Menu"
+                          uid=10_22 InlineTextBox "Menu"
+                      uid=10_23 ignored
+                        uid=10_24 list
+                          uid=10_25 listitem level="1"
+                            uid=10_26 link "Dashboard" url="http://localhost:5000/app/dashboard"
+                              uid=10_27 ignored
+                                uid=10_28 StaticText "Dashboard"
+                                  uid=10_29 InlineTextBox "Dashboard"
+                          uid=10_30 listitem level="1"
+                            uid=10_31 link "AI Assistant" url="http://localhost:5000/app/ai-assistant"
+                              uid=10_32 ignored
+                                uid=10_33 StaticText "AI Assistant"
+                                  uid=10_34 InlineTextBox "AI Assistant"
+                          uid=10_35 listitem level="1"
+                            uid=10_36 link "Clients" url="http://localhost:5000/app/clients"
+                              uid=10_37 ignored
+                                uid=10_38 StaticText "Clients"
+                                  uid=10_39 InlineTextBox "Clients"
+                          uid=10_40 listitem level="1"
+                            uid=10_41 link "Strategies" url="http://localhost:5000/app/strategies"
+                              uid=10_42 ignored
+                                uid=10_43 StaticText "Strategies"
+                                  uid=10_44 InlineTextBox "Strategies"
+                          uid=10_45 listitem level="1"
+                            uid=10_46 link "Campaigns" url="http://localhost:5000/app/campaigns"
+                              uid=10_47 ignored
+                                uid=10_48 StaticText "Campaigns"
+                                  uid=10_49 InlineTextBox "Campaigns"
+                          uid=10_50 listitem level="1"
+                            uid=10_51 link "Content" url="http://localhost:5000/app/content"
+                              uid=10_52 ignored
+                                uid=10_53 StaticText "Content"
+                                  uid=10_54 InlineTextBox "Content"
+                          uid=10_55 listitem level="1"
+                            uid=10_56 link "Exports" url="http://localhost:5000/app/exports"
+                              uid=10_57 ignored
+                                uid=10_58 StaticText "Exports"
+                                  uid=10_59 InlineTextBox "Exports"
+                    uid=10_60 generic
+                      uid=10_61 ignored
+                        uid=10_62 StaticText "System"
+                          uid=10_63 InlineTextBox "System"
+                      uid=10_64 ignored
+                        uid=10_65 list
+                          uid=10_66 listitem level="1"
+                            uid=10_67 link "Settings" url="http://localhost:5000/app/settings"
+                              uid=10_68 ignored
+                                uid=10_69 StaticText "Settings"
+                                  uid=10_70 InlineTextBox "Settings"
+                  uid=10_71 ignored
+                    uid=10_72 ignored
+                      uid=10_73 ignored
+                        uid=10_74 image url="https://github.com/shadcn.png"
+                      uid=10_75 ignored
+                        uid=10_76 ignored
+                          uid=10_77 StaticText "Alex Design"
+                            uid=10_78 InlineTextBox "Alex Design"
+                        uid=10_79 ignored
+                          uid=10_80 StaticText "Admin"
+                            uid=10_81 InlineTextBox "Admin"
+            uid=10_82 ignored
+              uid=10_83 banner
+                uid=10_84 button "Toggle Sidebar"
+                  uid=10_85 ignored
+                    uid=10_86 StaticText "Toggle Sidebar"
+                      uid=10_87 InlineTextBox "Toggle Sidebar"
+                uid=10_88 ignored
+                  uid=10_89 generic
+                    uid=10_90 searchbox "Search clients, campaigns, strategies..."
+                      uid=10_91 ignored
+                      uid=10_92 ignored
+                        uid=10_93 generic
+                uid=10_94 ignored
+                  uid=10_95 button "New Client"
+                    uid=10_96 StaticText "New Client"
+                      uid=10_97 InlineTextBox "New Client"
+                  uid=10_98 button
+                  uid=10_99 button expandable haspopup="menu"
+                    uid=10_100 ignored
+                      uid=10_101 image url="https://github.com/shadcn.png"
+              uid=10_102 main
+                uid=10_103 ignored
+                  uid=10_104 ignored
+                    uid=10_105 ignored
+                      uid=10_106 ignored
+                        uid=10_107 link url="http://localhost:5000/app/clients"
+                          uid=10_108 button
+                        uid=10_109 ignored
+                          uid=10_110 ignored
+                            uid=10_111 StaticText "TE"
+                              uid=10_112 InlineTextBox "TE"
+                          uid=10_113 ignored
+                            uid=10_114 heading "Tech Client" level="1"
+                              uid=10_115 StaticText "Tech Client"
+                                uid=10_116 InlineTextBox "Tech Client"
+                            uid=10_117 ignored
+                              uid=10_118 ignored
+                                uid=10_119 StaticText "Technology"
+                                  uid=10_120 InlineTextBox "Technology"
+                              uid=10_121 ignored
+                                uid=10_122 StaticText "•"
+                                  uid=10_123 InlineTextBox "•"
+                              uid=10_124 ignored
+                                uid=10_125 StaticText "Active"
+                                  uid=10_126 InlineTextBox "Active"
+                      uid=10_127 ignored
+                        uid=10_128 button "Share"
+                          uid=10_129 StaticText "Share"
+                            uid=10_130 InlineTextBox "Share"
+                        uid=10_131 button "Settings"
+                          uid=10_132 StaticText "Settings"
+                            uid=10_133 InlineTextBox "Settings"
+                        uid=10_134 button "New Campaign"
+                          uid=10_135 StaticText "New Campaign"
+                            uid=10_136 InlineTextBox "New Campaign"
+                    uid=10_137 ignored
+                      uid=10_138 ignored
+                        uid=10_139 tablist orientation="horizontal"
+                          uid=10_140 tab "Overview" selectable
+                            uid=10_141 StaticText "Overview"
+                              uid=10_142 InlineTextBox "Overview"
+                          uid=10_143 tab "Strategy Doc" focusable focused selectable selected
+                            uid=10_144 StaticText "Strategy Doc"
+                              uid=10_145 InlineTextBox "Strategy Doc"
+                          uid=10_146 tab "Campaigns" selectable
+                            uid=10_147 StaticText "Campaigns"
+                              uid=10_148 InlineTextBox "Campaigns"
+                          uid=10_149 tab "Content Calendar" selectable
+                            uid=10_150 StaticText "Content Calendar"
+                              uid=10_151 InlineTextBox "Content Calendar"
+                          uid=10_152 tab "Files & Exports" selectable
+                            uid=10_153 StaticText "Files & Exports"
+                              uid=10_154 InlineTextBox "Files & Exports"
+                      uid=10_155 generic
+                        uid=10_156 tabpanel "Strategy Doc"
+                          uid=10_157 ignored
+                            uid=10_158 ignored
+                              uid=10_159 ignored
+                                uid=10_160 ignored
+                                  uid=10_161 ignored
+                                    uid=10_162 generic
+                                      uid=10_163 StaticText "Q1 2026 Growth Strategy"
+                                        uid=10_164 InlineTextBox "Q1 2026 Growth Strategy"
+                                    uid=10_165 generic
+                                      uid=10_166 StaticText "Last edited 2 hours ago by Sarah J."
+                                        uid=10_167 InlineTextBox "Last edited 2 hours ago by Sarah J."
+                                  uid=10_168 ignored
+                                    uid=10_169 button "PDF"
+                                      uid=10_170 StaticText "PDF"
+                                        uid=10_171 InlineTextBox "PDF"
+                                    uid=10_172 button "Edit Document"
+                                      uid=10_173 StaticText "Edit Document"
+                                        uid=10_174 InlineTextBox "Edit Document"
+                                uid=10_175 ignored
+                                  uid=10_176 ignored
+                                    uid=10_177 heading "Tech Client Strategy" level="1"
+                                      uid=10_178 StaticText "Tech Client Strategy"
+                                        uid=10_179 InlineTextBox "Tech Client Strategy"
+                                    uid=10_180 paragraph
+                                      uid=10_181 StaticText "This is a test strategy for Tech Client Strategy purposes."
+                                        uid=10_182 InlineTextBox "This is a test strategy for Tech Client Strategy purposes."
+                                  uid=10_183 ignored
+                                    uid=10_184 heading "Market Analysis" level="2"
+                                      uid=10_185 StaticText "Market Analysis"
+                                        uid=10_186 InlineTextBox "Market Analysis"
+                                    uid=10_187 paragraph
+                                      uid=10_188 StaticText "The current landscape indicates a shift in the industry. Our focus remains on "
+                                        uid=10_189 InlineTextBox "The current landscape indicates a shift in the industry. Our focus remains "
+                                        uid=10_190 InlineTextBox "on "
+                                      uid=10_191 StaticText "Technology"
+                                        uid=10_192 InlineTextBox "Technology"
+                                      uid=10_193 StaticText " sector opportunities."
+                                        uid=10_194 InlineTextBox " sector opportunities."
+                                  uid=10_195 ignored
+                                    uid=10_196 heading "Target Audience (ICP)" level="2"
+                                      uid=10_197 StaticText "Target Audience (ICP)"
+                                        uid=10_198 InlineTextBox "Target Audience (ICP)"
+                                    uid=10_199 paragraph
+                                      uid=10_200 StaticText "Our focus is on "
+                                        uid=10_201 InlineTextBox "Our focus is on "
+                                      uid=10_202 StaticText "ideal customers"
+                                        uid=10_203 InlineTextBox "ideal customers"
+                                      uid=10_204 StaticText " in the "
+                                        uid=10_205 InlineTextBox " in the "
+                                      uid=10_206 StaticText "target market"
+                                        uid=10_207 InlineTextBox "target market"
+                                      uid=10_208 StaticText "."
+                                        uid=10_209 InlineTextBox "."
+                                  uid=10_210 ignored

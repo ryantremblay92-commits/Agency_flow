@@ -19,6 +19,7 @@ import CampaignsPage from "@/pages/app/campaigns";
 import ContentPage from "@/pages/app/content";
 import ExportsPage from "@/pages/app/exports";
 import SettingsPage from "@/pages/app/settings";
+import AIAssistant from "@/pages/app/ai-assistant";
 
 function Router() {
   return (
@@ -28,7 +29,7 @@ function Router() {
       <Route path="/how-it-works" component={HowItWorks} />
       <Route path="/services" component={Services} />
       <Route path="/case-studies" component={CaseStudies} />
-      
+
       {/* App Routes */}
       <Route path="/app/dashboard" component={Dashboard} />
       <Route path="/app/clients" component={ClientsList} />
@@ -39,7 +40,8 @@ function Router() {
       <Route path="/app/content" component={ContentPage} />
       <Route path="/app/exports" component={ExportsPage} />
       <Route path="/app/settings" component={SettingsPage} />
-      
+      <Route path="/app/ai-assistant" component={AIAssistant} />
+
       {/* Fallback to 404 */}
       <Route component={NotFound} />
     </Switch>

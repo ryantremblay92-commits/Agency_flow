@@ -1,0 +1,163 @@
+{
+  "users": [],
+  "clients": [
+    {
+      "name": "Tech Client",
+      "industry": "Technology",
+      "businessType": "B2B",
+      "status": "Active",
+      "primaryObjective": "lead-generation",
+      "monthlyBudget": 5000,
+      "id": "6ab73575-dfd1-44d5-9fdc-050c38da0c32",
+      "website": null,
+      "logo": null,
+      "timeline": null,
+      "icp": null,
+      "ageRange": null,
+      "location": null,
+      "painPoints": null,
+      "primaryColor": "#2563EB",
+      "brandFont": "Inter",
+      "brandVoice": [],
+      "createdAt": "2026-01-03T14:44:07.749Z",
+      "updatedAt": "2026-01-03T14:44:07.749Z"
+    },
+    {
+      "name": "Finance Client",
+      "industry": "Finance",
+      "businessType": "B2C",
+      "status": "Active",
+      "primaryObjective": "brand-awareness",
+      "monthlyBudget": 3000,
+      "id": "f13719b1-ad7c-4a38-b776-2f736639ae2a",
+      "website": null,
+      "logo": null,
+      "timeline": null,
+      "icp": null,
+      "ageRange": null,
+      "location": null,
+      "painPoints": null,
+      "primaryColor": "#2563EB",
+      "brandFont": "Inter",
+      "brandVoice": [],
+      "createdAt": "2026-01-03T14:44:07.755Z",
+      "updatedAt": "2026-01-03T14:44:07.755Z"
+    }
+  ],
+  "strategies": [
+    {
+      "name": "Tech Client Strategy",
+      "clientId": "6ab73575-dfd1-44d5-9fdc-050c38da0c32",
+      "description": "This is a test strategy for Tech Client Strategy purposes.",
+      "status": "Active",
+      "id": "5653849c-0569-4265-8716-3f13ba2e7a02",
+      "createdAt": "2026-01-03T14:44:07.753Z",
+      "updatedAt": "2026-01-03T14:44:07.753Z"
+    },
+    {
+      "name": "Finance Client Strategy",
+      "clientId": "f13719b1-ad7c-4a38-b776-2f736639ae2a",
+      "description": "This is a test strategy for Finance Client Strategy purposes.",
+      "status": "Active",
+      "id": "32294f9e-b49e-46d6-ab0c-bb832c337b63",
+      "createdAt": "2026-01-03T14:44:07.757Z",
+      "updatedAt": "2026-01-03T14:44:07.757Z"
+    }
+  ],
+  "campaigns": [
+    {
+      "name": "Tech Client Campaign",
+      "clientId": "6ab73575-dfd1-44d5-9fdc-050c38da0c32",
+      "platform": "LinkedIn",
+      "status": "Active",
+      "budget": 1000,
+      "id": "351a68d9-c407-4587-83c7-d0da11cc52e2",
+      "startDate": null,
+      "endDate": null,
+      "strategyId": null,
+      "createdAt": "2026-01-03T14:44:07.754Z",
+      "updatedAt": "2026-01-03T14:44:07.754Z"
+    },
+    {
+      "name": "Finance Client Campaign",
+      "clientId": "f13719b1-ad7c-4a38-b776-2f736639ae2a",
+      "platform": "Google",
+      "status": "Active",
+      "budget": 1000,
+      "id": "7e3baf61-0fcd-41b5-a9ab-392620ca1c7d",
+      "startDate": null,
+      "endDate": null,
+      "strategyId": null,
+      "createdAt": "2026-01-03T14:44:07.758Z",
+      "updatedAt": "2026-01-03T14:44:07.758Z"
+    }
+  ],
+  "activities": [
+    {
+      "action": "created",
+      "target": "client",
+      "targetName": "Tech Client",
+      "targetId": "6ab73575-dfd1-44d5-9fdc-050c38da0c32",
+      "clientId": "6ab73575-dfd1-44d5-9fdc-050c38da0c32",
+      "details": "New client onboarded",
+      "id": "ef2a21f3-9add-4eeb-af99-85af98bb7dbc",
+      "user": "System",
+      "createdAt": "2026-01-03T14:44:07.750Z"
+    },
+    {
+      "action": "created",
+      "target": "strategy",
+      "targetName": "Tech Client Strategy",
+      "targetId": "5653849c-0569-4265-8716-3f13ba2e7a02",
+      "clientId": "6ab73575-dfd1-44d5-9fdc-050c38da0c32",
+      "details": "New strategy created",
+      "id": "1cbc5e0f-ac61-452c-b711-a96670a752be",
+      "user": "System",
+      "createdAt": "2026-01-03T14:44:07.753Z"
+    },
+    {
+      "action": "created",
+      "target": "campaign",
+      "targetName": "Tech Client Campaign",
+      "targetId": "351a68d9-c407-4587-83c7-d0da11cc52e2",
+      "clientId": "6ab73575-dfd1-44d5-9fdc-050c38da0c32",
+      "details": "New campaign created",
+      "id": "7a06d280-44e9-4de4-a79f-1d6fe53b198d",
+      "user": "System",
+      "createdAt": "2026-01-03T14:44:07.754Z"
+    },
+    {
+      "action": "created",
+      "target": "client",
+      "targetName": "Finance Client",
+      "targetId": "f13719b1-ad7c-4a38-b776-2f736639ae2a",
+      "clientId": "f13719b1-ad7c-4a38-b776-2f736639ae2a",
+      "details": "New client onboarded",
+      "id": "c553c597-0333-47c3-b61a-8656c075cc16",
+      "user": "System",
+      "createdAt": "2026-01-03T14:44:07.756Z"
+    },
+    {
+      "action": "created",
+      "target": "strategy",
+      "targetName": "Finance Client Strategy",
+      "targetId": "32294f9e-b49e-46d6-ab0c-bb832c337b63",
+      "clientId": "f13719b1-ad7c-4a38-b776-2f736639ae2a",
+      "details": "New strategy created",
+      "id": "08c96169-7da1-46bd-bde3-26198ee946d1",
+      "user": "System",
+      "createdAt": "2026-01-03T14:44:07.757Z"
+    },
+    {
+      "action": "created",
+      "target": "campaign",
+      "targetName": "Finance Client Campaign",
+      "targetId": "7e3baf61-0fcd-41b5-a9ab-392620ca1c7d",
+      "clientId": "f13719b1-ad7c-4a38-b776-2f736639ae2a",
+      "details": "New campaign created",
+      "id": "0f3bb30a-095f-4e6f-bba1-510650096d42",
+      "user": "System",
+      "createdAt": "2026-01-03T14:44:07.758Z"
+    }
+  ]
+}

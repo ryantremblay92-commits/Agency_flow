@@ -7,8 +7,52 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
 import { User, Bell, Shield, CreditCard, Building } from "lucide-react";
+import { useState } from "react";
 
 export default function SettingsPage() {
+  const [profile, setProfile] = useState({
+    firstName: "Alex",
+    lastName: "Design",
+    email: "alex@agencyflow.com"
+  });
+
+  const [agency, setAgency] = useState({
+    name: "AgencyFlow Creative",
+    website: "https://agencyflow.com",
+    timezone: "UTC-5 (Eastern Time)"
+  });
+
+  const [notifications, setNotifications] = useState({
+    strategyReports: true,
+    clientActivity: true,
+    campaignAlerts: true
+  });
+
+  const handleSaveProfile = () => {
+    console.log("Save profile:", profile);
+    // TODO: Implement profile save functionality
+  };
+
+  const handleUpdateAgency = () => {
+    console.log("Update agency:", agency);
+    // TODO: Implement agency update functionality
+  };
+
+  const handleChangeAvatar = () => {
+    console.log("Change avatar clicked");
+    // TODO: Implement avatar change functionality
+  };
+
+  const handleManageSubscription = () => {
+    console.log("Manage subscription clicked");
+    // TODO: Implement subscription management
+  };
+
+  const handleUpdatePayment = () => {
+    console.log("Update payment method clicked");
+    // TODO: Implement payment method update
+  };
+
   return (
     <AppLayout>
       <div className="flex flex-col gap-8">
@@ -33,8 +77,8 @@ export default function SettingsPage() {
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="flex items-center gap-4">
-                   <div className="h-20 w-20 rounded-full bg-muted flex items-center justify-center text-2xl font-bold border">AD</div>
-                   <Button variant="outline">Change Avatar</Button>
+                  <div className="h-20 w-20 rounded-full bg-muted flex items-center justify-center text-2xl font-bold border">AD</div>
+                  <Button variant="outline">Change Avatar</Button>
                 </div>
                 <Separator />
                 <div className="grid gap-4 md:grid-cols-2">
@@ -52,7 +96,7 @@ export default function SettingsPage() {
                   </div>
                 </div>
                 <div className="pt-4">
-                  <Button>Save Changes</Button>
+                  <Button onClick={handleSaveProfile}>Save Changes</Button>
                 </div>
               </CardContent>
             </Card>
@@ -78,7 +122,7 @@ export default function SettingsPage() {
                   <Input id="timezone" defaultValue="UTC-5 (Eastern Time)" />
                 </div>
                 <div className="pt-4">
-                  <Button>Update Agency Info</Button>
+                  <Button onClick={handleUpdateAgency}>Update Agency Info</Button>
                 </div>
               </CardContent>
             </Card>
@@ -92,58 +136,58 @@ export default function SettingsPage() {
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="flex items-center justify-between">
-                   <div className="space-y-0.5">
-                     <Label>Strategy Reports</Label>
-                     <p className="text-sm text-muted-foreground">Receive a summary when a new strategy is generated.</p>
-                   </div>
-                   <Switch defaultChecked />
+                  <div className="space-y-0.5">
+                    <Label>Strategy Reports</Label>
+                    <p className="text-sm text-muted-foreground">Receive a summary when a new strategy is generated.</p>
+                  </div>
+                  <Switch defaultChecked />
                 </div>
                 <Separator />
                 <div className="flex items-center justify-between">
-                   <div className="space-y-0.5">
-                     <Label>Client Activity</Label>
-                     <p className="text-sm text-muted-foreground">Get notified when a client interacts with the workspace.</p>
-                   </div>
-                   <Switch defaultChecked />
+                  <div className="space-y-0.5">
+                    <Label>Client Activity</Label>
+                    <p className="text-sm text-muted-foreground">Get notified when a client interacts with the workspace.</p>
+                  </div>
+                  <Switch defaultChecked />
                 </div>
                 <Separator />
                 <div className="flex items-center justify-between">
-                   <div className="space-y-0.5">
-                     <Label>Campaign Alerts</Label>
-                     <p className="text-sm text-muted-foreground">Critical alerts regarding active campaign performance.</p>
-                   </div>
-                   <Switch defaultChecked />
+                  <div className="space-y-0.5">
+                    <Label>Campaign Alerts</Label>
+                    <p className="text-sm text-muted-foreground">Critical alerts regarding active campaign performance.</p>
+                  </div>
+                  <Switch defaultChecked />
                 </div>
               </CardContent>
             </Card>
           </TabsContent>
 
           <TabsContent value="billing">
-             <Card>
-               <CardHeader>
-                 <CardTitle>Current Plan</CardTitle>
-                 <CardDescription>You are currently on the Pro Agency plan.</CardDescription>
-               </CardHeader>
-               <CardContent className="space-y-6">
-                  <div className="p-4 rounded-lg bg-primary/5 border border-primary/20 flex items-center justify-between">
-                     <div>
-                       <p className="font-bold text-lg">Pro Agency</p>
-                       <p className="text-sm text-muted-foreground">$199 / month • Renews Feb 12, 2026</p>
-                     </div>
-                     <Button>Manage Subscription</Button>
+            <Card>
+              <CardHeader>
+                <CardTitle>Current Plan</CardTitle>
+                <CardDescription>You are currently on the Pro Agency plan.</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="p-4 rounded-lg bg-primary/5 border border-primary/20 flex items-center justify-between">
+                  <div>
+                    <p className="font-bold text-lg">Pro Agency</p>
+                    <p className="text-sm text-muted-foreground">$199 / month • Renews Feb 12, 2026</p>
                   </div>
-                  <div className="space-y-2">
-                    <h4 className="font-semibold text-sm">Payment Method</h4>
-                    <div className="flex items-center justify-between p-3 border rounded-lg">
-                       <div className="flex items-center gap-3">
-                         <CreditCard className="h-5 w-5 text-muted-foreground" />
-                         <span className="text-sm font-medium">•••• •••• •••• 4242</span>
-                       </div>
-                       <Button variant="ghost" size="sm">Update</Button>
+                  <Button>Manage Subscription</Button>
+                </div>
+                <div className="space-y-2">
+                  <h4 className="font-semibold text-sm">Payment Method</h4>
+                  <div className="flex items-center justify-between p-3 border rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <CreditCard className="h-5 w-5 text-muted-foreground" />
+                      <span className="text-sm font-medium">•••• •••• •••• 4242</span>
                     </div>
+                    <Button variant="ghost" size="sm">Update</Button>
                   </div>
-               </CardContent>
-             </Card>
+                </div>
+              </CardContent>
+            </Card>
           </TabsContent>
         </Tabs>
       </div>

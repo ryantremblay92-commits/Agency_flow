@@ -11,14 +11,53 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useState } from "react";
 import { useLocation } from "wouter";
 import { ArrowLeft, ArrowRight, Check, Upload } from "lucide-react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
 
 export default function NewClientWizard() {
   const [step, setStep] = useState(1);
   const [, setLocation] = useLocation();
+  const queryClient = useQueryClient();
+
+  // Form data state
+  const [formData, setFormData] = useState({
+    name: "",
+    website: "",
+    industry: "",
+    businessType: "B2B",
+    primaryColor: "#2563EB",
+    brandFont: "Inter",
+    brandVoice: [] as string[],
+    primaryObjective: "",
+    monthlyBudget: 5000,
+    timeline: 3,
+    icp: "",
+    ageRange: "",
+    location: "",
+    painPoints: "",
+  });
+
+  const createClientMutation = useMutation({
+    mutationFn: async (data: typeof formData) => {
+      const res = await apiRequest("POST", "/api/clients", data);
+      return res.json();
+    },
+    onSuccess: (client) => {
+      queryClient.invalidateQueries({ queryKey: ["/api/clients"] });
+      setLocation(`/app/clients/${client.id}`);
+    },
+  });
+
+  const updateFormData = (field: string, value: any) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
 
   const nextStep = () => setStep(step + 1);
   const prevStep = () => setStep(step - 1);
-  const finish = () => setLocation("/app/clients/1"); // Redirect to mock ID 1
+
+  const finish = () => {
+    createClientMutation.mutate(formData);
+  };
 
   const ProgressStep = ({ num, title, isActive, isCompleted }: any) => (
     <div className={`flex flex-col items-center gap-2 relative z-10 w-24`}>
@@ -28,6 +67,16 @@ export default function NewClientWizard() {
       <span className={`text-xs font-medium text-center ${isActive ? 'text-foreground' : 'text-muted-foreground'}`}>{title}</span>
     </div>
   );
+
+  if (createClientMutation.isPending) {
+    return (
+      <AppLayout>
+        <div className="flex items-center justify-center h-64">
+          <div>Creating client...</div>
+        </div>
+      </AppLayout>
+    );
+  }
 
   return (
     <AppLayout>
@@ -40,8 +89,8 @@ export default function NewClientWizard() {
         {/* Progress Bar */}
         <div className="relative flex justify-between mb-12 px-4">
           <div className="absolute top-4 left-0 right-0 h-0.5 bg-muted -z-0 mx-12">
-            <div 
-              className="h-full bg-primary transition-all duration-300 ease-in-out" 
+            <div
+              className="h-full bg-primary transition-all duration-300 ease-in-out"
               style={{ width: `${((step - 1) / 4) * 100}%` }}
             ></div>
           </div>
@@ -64,39 +113,53 @@ export default function NewClientWizard() {
                 <div className="grid gap-4 md:grid-cols-2">
                   <div className="space-y-2">
                     <Label htmlFor="companyName">Company Name</Label>
-                    <Input id="companyName" placeholder="Acme Corp" />
+                    <Input
+                      id="companyName"
+                      placeholder="Acme Corp"
+                      value={formData.name}
+                      onChange={(e) => updateFormData("name", e.target.value)}
+                    />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="website">Website URL</Label>
-                    <Input id="website" placeholder="https://..." />
+                    <Input
+                      id="website"
+                      placeholder="https://..."
+                      value={formData.website}
+                      onChange={(e) => updateFormData("website", e.target.value)}
+                    />
                   </div>
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="industry">Industry</Label>
-                  <Select>
+                  <Select value={formData.industry} onValueChange={(value) => updateFormData("industry", value)}>
                     <SelectTrigger>
                       <SelectValue placeholder="Select industry" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="tech">Technology / SaaS</SelectItem>
-                      <SelectItem value="retail">Retail / E-commerce</SelectItem>
-                      <SelectItem value="health">Healthcare</SelectItem>
-                      <SelectItem value="finance">Finance</SelectItem>
+                      <SelectItem value="Technology / SaaS">Technology / SaaS</SelectItem>
+                      <SelectItem value="Retail / E-commerce">Retail / E-commerce</SelectItem>
+                      <SelectItem value="Healthcare">Healthcare</SelectItem>
+                      <SelectItem value="Finance">Finance</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
                 <div className="space-y-2">
-                   <Label>Business Type</Label>
-                   <RadioGroup defaultValue="b2b" className="flex gap-4">
-                     <div className="flex items-center space-x-2 border rounded-md p-3 flex-1 hover:bg-muted/5 cursor-pointer">
-                       <RadioGroupItem value="b2b" id="b2b" />
-                       <Label htmlFor="b2b" className="cursor-pointer font-normal">B2B (Business to Business)</Label>
-                     </div>
-                     <div className="flex items-center space-x-2 border rounded-md p-3 flex-1 hover:bg-muted/5 cursor-pointer">
-                       <RadioGroupItem value="b2c" id="b2c" />
-                       <Label htmlFor="b2c" className="cursor-pointer font-normal">B2C (Business to Consumer)</Label>
-                     </div>
-                   </RadioGroup>
+                  <Label>Business Type</Label>
+                  <RadioGroup
+                    value={formData.businessType}
+                    onValueChange={(value) => updateFormData("businessType", value)}
+                    className="flex gap-4"
+                  >
+                    <div className="flex items-center space-x-2 border rounded-md p-3 flex-1 hover:bg-muted/5 cursor-pointer">
+                      <RadioGroupItem value="B2B" id="b2b" />
+                      <Label htmlFor="b2b" className="cursor-pointer font-normal">B2B (Business to Business)</Label>
+                    </div>
+                    <div className="flex items-center space-x-2 border rounded-md p-3 flex-1 hover:bg-muted/5 cursor-pointer">
+                      <RadioGroupItem value="B2C" id="b2c" />
+                      <Label htmlFor="b2c" className="cursor-pointer font-normal">B2C (Business to Consumer)</Label>
+                    </div>
+                  </RadioGroup>
                 </div>
               </CardContent>
             </>
@@ -121,35 +184,52 @@ export default function NewClientWizard() {
                   </div>
                 </div>
                 <div className="grid gap-4 md:grid-cols-2">
-                   <div className="space-y-2">
-                     <Label>Primary Color</Label>
-                     <div className="flex gap-2">
-                       <div className="h-10 w-10 rounded border bg-blue-600"></div>
-                       <Input placeholder="#000000" defaultValue="#2563EB" />
-                     </div>
-                   </div>
-                   <div className="space-y-2">
-                     <Label>Brand Font</Label>
-                     <Select defaultValue="inter">
-                       <SelectTrigger><SelectValue /></SelectTrigger>
-                       <SelectContent>
-                         <SelectItem value="inter">Inter</SelectItem>
-                         <SelectItem value="roboto">Roboto</SelectItem>
-                         <SelectItem value="poppins">Poppins</SelectItem>
-                       </SelectContent>
-                     </Select>
-                   </div>
+                  <div className="space-y-2">
+                    <Label>Primary Color</Label>
+                    <div className="flex gap-2">
+                      <div
+                        className="h-10 w-10 rounded border"
+                        style={{ backgroundColor: formData.primaryColor }}
+                      ></div>
+                      <Input
+                        placeholder="#000000"
+                        value={formData.primaryColor}
+                        onChange={(e) => updateFormData("primaryColor", e.target.value)}
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Brand Font</Label>
+                    <Select value={formData.brandFont} onValueChange={(value) => updateFormData("brandFont", value)}>
+                      <SelectTrigger><SelectValue /></SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Inter">Inter</SelectItem>
+                        <SelectItem value="Roboto">Roboto</SelectItem>
+                        <SelectItem value="Poppins">Poppins</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
                 </div>
                 <div className="space-y-3">
-                   <Label>Brand Voice (Select all that apply)</Label>
-                   <div className="grid grid-cols-2 gap-3">
-                      {["Professional", "Playful", "Authoritative", "Friendly", "Technical", "Luxury"].map((voice) => (
-                        <div key={voice} className="flex items-center space-x-2">
-                          <Checkbox id={voice} />
-                          <Label htmlFor={voice} className="font-normal cursor-pointer">{voice}</Label>
-                        </div>
-                      ))}
-                   </div>
+                  <Label>Brand Voice (Select all that apply)</Label>
+                  <div className="grid grid-cols-2 gap-3">
+                    {["Professional", "Playful", "Authoritative", "Friendly", "Technical", "Luxury"].map((voice) => (
+                      <div key={voice} className="flex items-center space-x-2">
+                        <Checkbox
+                          id={voice}
+                          checked={formData.brandVoice.includes(voice)}
+                          onCheckedChange={(checked) => {
+                            if (checked) {
+                              updateFormData("brandVoice", [...formData.brandVoice, voice]);
+                            } else {
+                              updateFormData("brandVoice", formData.brandVoice.filter(v => v !== voice));
+                            }
+                          }}
+                        />
+                        <Label htmlFor={voice} className="font-normal cursor-pointer">{voice}</Label>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </CardContent>
             </>
@@ -165,30 +245,36 @@ export default function NewClientWizard() {
               <CardContent className="space-y-8">
                 <div className="space-y-2">
                   <Label>Primary Objective</Label>
-                  <Select>
+                  <Select value={formData.primaryObjective} onValueChange={(value) => updateFormData("primaryObjective", value)}>
                     <SelectTrigger><SelectValue placeholder="Select primary goal" /></SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="leads">Lead Generation</SelectItem>
-                      <SelectItem value="sales">Online Sales</SelectItem>
-                      <SelectItem value="awareness">Brand Awareness</SelectItem>
-                      <SelectItem value="traffic">Website Traffic</SelectItem>
+                      <SelectItem value="Lead Generation">Lead Generation</SelectItem>
+                      <SelectItem value="Online Sales">Online Sales</SelectItem>
+                      <SelectItem value="Brand Awareness">Brand Awareness</SelectItem>
+                      <SelectItem value="Website Traffic">Website Traffic</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
                 <div className="space-y-6">
                   <div className="flex justify-between">
-                     <Label>Monthly Ad Budget</Label>
-                     <span className="text-sm font-bold text-primary">$5,000</span>
+                    <Label>Monthly Ad Budget</Label>
+                    <span className="text-sm font-bold text-primary">${formData.monthlyBudget.toLocaleString()}</span>
                   </div>
-                  <Slider defaultValue={[5000]} max={50000} step={500} className="w-full" />
+                  <Slider
+                    value={[formData.monthlyBudget]}
+                    onValueChange={(value) => updateFormData("monthlyBudget", value[0])}
+                    max={50000}
+                    step={500}
+                    className="w-full"
+                  />
                   <div className="flex justify-between text-xs text-muted-foreground">
                     <span>$500</span>
                     <span>$50,000+</span>
                   </div>
                 </div>
                 <div className="space-y-2">
-                   <Label>Campaign Timeline</Label>
-                   <Select>
+                  <Label>Campaign Timeline</Label>
+                  <Select value={formData.timeline.toString()} onValueChange={(value) => updateFormData("timeline", parseInt(value))}>
                     <SelectTrigger><SelectValue placeholder="Select duration" /></SelectTrigger>
                     <SelectContent>
                       <SelectItem value="1">1 Month</SelectItem>
@@ -204,81 +290,98 @@ export default function NewClientWizard() {
 
           {/* STEP 4: AUDIENCE */}
           {step === 4 && (
-             <>
-               <CardHeader>
-                 <CardTitle>Target Audience</CardTitle>
-                 <CardDescription>Who are we trying to reach?</CardDescription>
-               </CardHeader>
-               <CardContent className="space-y-6">
-                 <div className="space-y-2">
-                   <Label>Ideal Customer Profile (ICP)</Label>
-                   <Textarea placeholder="Describe the ideal customer e.g. CTOs of Series A startups..." className="min-h-[100px]" />
-                 </div>
-                 <div className="grid gap-4 md:grid-cols-2">
-                   <div className="space-y-2">
-                     <Label>Age Range</Label>
-                     <Input placeholder="e.g. 25-45" />
-                   </div>
-                   <div className="space-y-2">
-                     <Label>Location</Label>
-                     <Input placeholder="e.g. United States, UK" />
-                   </div>
-                 </div>
-                 <div className="space-y-2">
-                   <Label>Pain Points</Label>
-                   <Textarea placeholder="What problems are they facing?" />
-                 </div>
-               </CardContent>
-             </>
+            <>
+              <CardHeader>
+                <CardTitle>Target Audience</CardTitle>
+                <CardDescription>Who are we trying to reach?</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="space-y-2">
+                  <Label>Ideal Customer Profile (ICP)</Label>
+                  <Textarea
+                    placeholder="Describe the ideal customer e.g. CTOs of Series A startups..."
+                    className="min-h-[100px]"
+                    value={formData.icp}
+                    onChange={(e) => updateFormData("icp", e.target.value)}
+                  />
+                </div>
+                <div className="grid gap-4 md:grid-cols-2">
+                  <div className="space-y-2">
+                    <Label>Age Range</Label>
+                    <Input
+                      placeholder="e.g. 25-45"
+                      value={formData.ageRange}
+                      onChange={(e) => updateFormData("ageRange", e.target.value)}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Location</Label>
+                    <Input
+                      placeholder="e.g. United States, UK"
+                      value={formData.location}
+                      onChange={(e) => updateFormData("location", e.target.value)}
+                    />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <Label>Pain Points</Label>
+                  <Textarea
+                    placeholder="What problems are they facing?"
+                    value={formData.painPoints}
+                    onChange={(e) => updateFormData("painPoints", e.target.value)}
+                  />
+                </div>
+              </CardContent>
+            </>
           )}
 
-           {/* STEP 5: REVIEW */}
-           {step === 5 && (
-             <>
-               <CardHeader>
-                 <CardTitle>Review Details</CardTitle>
-                 <CardDescription>Confirm everything is correct before creating the workspace.</CardDescription>
-               </CardHeader>
-               <CardContent className="space-y-6">
-                  <div className="rounded-lg border p-4 space-y-4 bg-muted/5">
-                    <div className="grid grid-cols-2 gap-4 text-sm">
-                       <div>
-                         <span className="text-muted-foreground block mb-1">Company</span>
-                         <span className="font-medium">Acme Corp</span>
-                       </div>
-                       <div>
-                         <span className="text-muted-foreground block mb-1">Industry</span>
-                         <span className="font-medium">Technology / SaaS</span>
-                       </div>
-                       <div>
-                         <span className="text-muted-foreground block mb-1">Budget</span>
-                         <span className="font-medium">$5,000 / month</span>
-                       </div>
-                       <div>
-                         <span className="text-muted-foreground block mb-1">Goal</span>
-                         <span className="font-medium">Lead Generation</span>
-                       </div>
+          {/* STEP 5: REVIEW */}
+          {step === 5 && (
+            <>
+              <CardHeader>
+                <CardTitle>Review Details</CardTitle>
+                <CardDescription>Confirm everything is correct before creating the workspace.</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="rounded-lg border p-4 space-y-4 bg-muted/5">
+                  <div className="grid grid-cols-2 gap-4 text-sm">
+                    <div>
+                      <span className="text-muted-foreground block mb-1">Company</span>
+                      <span className="font-medium">{formData.name || "Not provided"}</span>
+                    </div>
+                    <div>
+                      <span className="text-muted-foreground block mb-1">Industry</span>
+                      <span className="font-medium">{formData.industry || "Not provided"}</span>
+                    </div>
+                    <div>
+                      <span className="text-muted-foreground block mb-1">Budget</span>
+                      <span className="font-medium">${formData.monthlyBudget.toLocaleString()} / month</span>
+                    </div>
+                    <div>
+                      <span className="text-muted-foreground block mb-1">Goal</span>
+                      <span className="font-medium">{formData.primaryObjective || "Not provided"}</span>
                     </div>
                   </div>
-                  <div className="bg-blue-50 text-blue-800 p-4 rounded-lg text-sm">
-                    <strong>Ready to go?</strong> Clicking "Confirm & Create" will generate the workspace and initialize the strategy engine.
-                  </div>
-               </CardContent>
-             </>
-           )}
+                </div>
+                <div className="bg-blue-50 text-blue-800 p-4 rounded-lg text-sm">
+                  <strong>Ready to go?</strong> Clicking "Confirm & Create" will generate the workspace and initialize the strategy engine.
+                </div>
+              </CardContent>
+            </>
+          )}
 
           <CardFooter className="flex justify-between border-t p-6 bg-muted/10">
             <Button variant="outline" onClick={prevStep} disabled={step === 1}>
               <ArrowLeft className="w-4 h-4 mr-2" /> Back
             </Button>
             {step < 5 ? (
-               <Button onClick={nextStep}>
-                 Next Step <ArrowRight className="w-4 h-4 ml-2" />
-               </Button>
+              <Button onClick={nextStep}>
+                Next Step <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
             ) : (
-               <Button onClick={finish} className="bg-green-600 hover:bg-green-700">
-                 Confirm & Create Client <Check className="w-4 h-4 ml-2" />
-               </Button>
+              <Button onClick={finish} className="bg-green-600 hover:bg-green-700" disabled={createClientMutation.isPending}>
+                Confirm & Create Client <Check className="w-4 h-4 ml-2" />
+              </Button>
             )}
           </CardFooter>
         </Card>

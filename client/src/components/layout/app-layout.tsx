@@ -23,25 +23,57 @@ import {
   SidebarGroupLabel,
   SidebarGroupContent,
 } from "@/components/ui/sidebar";
-import { 
-  LayoutDashboard, 
-  Users, 
-  Target, 
-  Megaphone, 
-  FileText, 
-  Download, 
-  Settings, 
-  Zap, 
-  Bell, 
+import {
+  LayoutDashboard,
+  Users,
+  Target,
+  Megaphone,
+  FileText,
+  Download,
+  Settings,
+  Zap,
+  Bell,
   Search,
-  Plus
+  Plus,
+  Brain
 } from "lucide-react";
+import { useLocation as useWouterLocation } from "wouter";
 
 export function AppLayout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
+  const [, setLocation] = useWouterLocation();
+
+  const handleNewClient = () => {
+    setLocation("/app/clients/new");
+  };
+
+  const handleNotifications = () => {
+    console.log("Notifications clicked");
+    // TODO: Implement notifications functionality
+  };
+
+  const handleProfile = () => {
+    console.log("Profile clicked");
+    // TODO: Implement profile functionality
+  };
+
+  const handleBilling = () => {
+    console.log("Billing clicked");
+    // TODO: Implement billing functionality
+  };
+
+  const handleSettings = () => {
+    setLocation("/app/settings");
+  };
+
+  const handleLogout = () => {
+    console.log("Logout clicked");
+    // TODO: Implement logout functionality
+  };
 
   const menuItems = [
     { label: "Dashboard", icon: LayoutDashboard, href: "/app/dashboard" },
+    { label: "AI Assistant", icon: Brain, href: "/app/ai-assistant" },
     { label: "Clients", icon: Users, href: "/app/clients" },
     { label: "Strategies", icon: Target, href: "/app/strategies" },
     { label: "Campaigns", icon: Megaphone, href: "/app/campaigns" },
@@ -61,7 +93,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
               <span className="text-lg font-bold truncate group-data-[collapsible=icon]:hidden">AgencyFlow</span>
             </Link>
           </SidebarHeader>
-          
+
           <SidebarContent className="p-2">
             <SidebarGroup>
               <SidebarGroupLabel>Menu</SidebarGroupLabel>
@@ -69,8 +101,8 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 <SidebarMenu>
                   {menuItems.map((item) => (
                     <SidebarMenuItem key={item.href}>
-                      <SidebarMenuButton 
-                        asChild 
+                      <SidebarMenuButton
+                        asChild
                         isActive={location.startsWith(item.href)}
                         tooltip={item.label}
                         className="h-10 transition-all hover:translate-x-1"
@@ -85,24 +117,24 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 </SidebarMenu>
               </SidebarGroupContent>
             </SidebarGroup>
-            
+
             <SidebarGroup className="mt-auto">
-               <SidebarGroupLabel>System</SidebarGroupLabel>
-               <SidebarGroupContent>
-                 <SidebarMenu>
-                   <SidebarMenuItem>
-                     <SidebarMenuButton asChild tooltip="Settings">
-                       <Link href="/app/settings">
-                         <Settings className="w-5 h-5" />
-                         <span>Settings</span>
-                       </Link>
-                     </SidebarMenuButton>
-                   </SidebarMenuItem>
-                 </SidebarMenu>
-               </SidebarGroupContent>
+              <SidebarGroupLabel>System</SidebarGroupLabel>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild tooltip="Settings">
+                      <Link href="/app/settings">
+                        <Settings className="w-5 h-5" />
+                        <span>Settings</span>
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                </SidebarMenu>
+              </SidebarGroupContent>
             </SidebarGroup>
           </SidebarContent>
-          
+
           <SidebarFooter className="p-4 border-t">
             <div className="flex items-center gap-3 group-data-[collapsible=icon]:justify-center">
               <Avatar className="h-9 w-9 border cursor-pointer">
@@ -131,11 +163,11 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <Button variant="outline" size="sm" className="hidden sm:flex gap-2">
+              <Button variant="outline" size="sm" className="hidden sm:flex gap-2" onClick={handleNewClient}>
                 <Plus className="w-4 h-4" />
                 New Client
               </Button>
-              <Button variant="ghost" size="icon" className="text-muted-foreground">
+              <Button variant="ghost" size="icon" className="text-muted-foreground" onClick={handleNotifications}>
                 <Bell className="w-5 h-5" />
               </Button>
               <DropdownMenu>
@@ -155,16 +187,16 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                     </div>
                   </DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem>Profile</DropdownMenuItem>
-                  <DropdownMenuItem>Billing</DropdownMenuItem>
-                  <DropdownMenuItem>Settings</DropdownMenuItem>
+                  <DropdownMenuItem onClick={handleProfile}>Profile</DropdownMenuItem>
+                  <DropdownMenuItem onClick={handleBilling}>Billing</DropdownMenuItem>
+                  <DropdownMenuItem onClick={handleSettings}>Settings</DropdownMenuItem>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem className="text-destructive">Log out</DropdownMenuItem>
+                  <DropdownMenuItem className="text-destructive" onClick={handleLogout}>Log out</DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
           </header>
-          
+
           <main className="flex-1 overflow-auto p-6 md:p-8">
             <div className="mx-auto max-w-7xl animate-in fade-in slide-in-from-bottom-4 duration-500">
               {children}
