@@ -70,14 +70,17 @@ app.use((req, res, next) => {
 });
 
 // START LISTENING IMMEDIATELY for Railway health check
-const port = parseInt(process.env.PORT || "5000", 10);
+const portValue = process.env.PORT || "5000";
+const port = parseInt(portValue, 10);
+log(`Startup: Listening on port ${port} (Source: ${process.env.PORT ? 'Environment Variable' : 'Default 5000'})`);
+
 httpServer.listen(
   {
     port,
     host: "0.0.0.0",
   },
   () => {
-    log(`serving on port ${port} (Ready for health checks)`);
+    log(`serving on port ${port} (READY FOR RAILWAY HEALTH CHECKS)`);
 
     // Continue loading application routes and logic in the background
     (async () => {
