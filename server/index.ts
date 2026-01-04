@@ -70,9 +70,11 @@ app.use((req, res, next) => {
 });
 
 // START LISTENING IMMEDIATELY for Railway health check
-const portValue = process.env.PORT || "5000";
+// In production with Caddy, we use port 3000 internally. 
+// Outside production, we use process.env.PORT or 5000.
+const portValue = process.env.NODE_ENV === "production" ? "3000" : (process.env.PORT || "5000");
 const port = parseInt(portValue, 10);
-log(`Startup: Listening on port ${port} (Source: ${process.env.PORT ? 'Environment Variable' : 'Default 5000'})`);
+log(`Startup: Listening on port ${port} (Mode: ${process.env.NODE_ENV}, Source: ${process.env.PORT ? 'Environment Variable' : 'Fixed/Default'})`);
 
 httpServer.listen(
   {
